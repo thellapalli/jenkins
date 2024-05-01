@@ -14,10 +14,10 @@ pipeline {
           }
     stage('plan') {
       steps {
-        sh "terraform plan"
-	input message: "approve build or discard?"
+        withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+           sh "terraform plan"
 		}
-		}
+	}	}
     stage('apply') {
       steps {
         sh "terraform apply -auto-approve"
