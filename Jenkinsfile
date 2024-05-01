@@ -3,24 +3,24 @@ pipeline {
 	
   stages {
     stage('plugins') {
-	  steps {
-	    sh ("terraform init")
+      steps {
+	sh "terraform init"
 		}
-		}
-	stage('validate') {
-	 steps {
-	  sh "terraform validate"
+	}
+    stage('validate') {
+      steps {
+        sh "terraform validate"
 	  }
           }
-	stage('plan') {
-	  steps {
-	    sh 'terraform plan'
-		input message: "approve build or discard?"
+    stage('plan') {
+      steps {
+        sh "terraform plan"
+	input message: "approve build or discard?"
 		}
 		}
-	stage('apply') {
-	  steps {
-	    sh 'terraform apply'
+    stage('apply') {
+      steps {
+        sh "terraform apply"
 		}
 		}
 	}
