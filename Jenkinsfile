@@ -18,12 +18,8 @@ pipeline {
            sh "terraform plan"
 	   sh "terraform apply -auto-approve"
 	}
-	}	}
- //stage('destroy ') {
-      steps {
-        sh "terraform destroy -auto-approve"
-}
-}//
+	}
+	}
 
 	}
 
