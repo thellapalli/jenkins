@@ -4,13 +4,12 @@ pipeline {
   stages {
     stage('plugins') {
 	  steps {
-	    sh 'terraform init -upgrade'
-	    sh 'terraform fmt -check'
+	    sh ("terraform init")
 		}
 		}
 	stage('validate') {
 	 steps {
-	  sh 'terraform validate'
+	  sh "terraform validate"
 	  }
           }
 	stage('plan') {
